@@ -1,7 +1,9 @@
 package io.zipcoder.currencyconverterapplication;
 
 public interface ConvertableCurrency {
+    CurrencyType forEx();
+
     default Double convert(CurrencyType currencyType) {
-        return Double.MAX_VALUE;
+        return currencyType.getRate()/this.forEx().getRate();
     }
 }
